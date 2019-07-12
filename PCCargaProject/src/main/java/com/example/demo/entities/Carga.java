@@ -1,5 +1,5 @@
 package com.example.demo.entities;
-// Generated 04-jul-2019 21:58:16 by Hibernate Tools 5.2.10.Final
+// Generated 11-jul-2019 22:05:43 by Hibernate Tools 5.2.10.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,17 +18,17 @@ public class Carga implements java.io.Serializable {
 
 	private int idcarga;
 	private Docente docente;
+	private Semestreacademico semestreacademico;
 	private short horas;
-	private long idsemestre;
 
 	public Carga() {
 	}
 
-	public Carga(int idcarga, Docente docente, short horas, long idsemestre) {
+	public Carga(int idcarga, Docente docente, Semestreacademico semestreacademico, short horas) {
 		this.idcarga = idcarga;
 		this.docente = docente;
+		this.semestreacademico = semestreacademico;
 		this.horas = horas;
-		this.idsemestre = idsemestre;
 	}
 
 	@Id
@@ -52,6 +52,16 @@ public class Carga implements java.io.Serializable {
 		this.docente = docente;
 	}
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ciclo", nullable = false)
+	public Semestreacademico getSemestreacademico() {
+		return this.semestreacademico;
+	}
+
+	public void setSemestreacademico(Semestreacademico semestreacademico) {
+		this.semestreacademico = semestreacademico;
+	}
+
 	@Column(name = "horas", nullable = false)
 	public short getHoras() {
 		return this.horas;
@@ -59,15 +69,6 @@ public class Carga implements java.io.Serializable {
 
 	public void setHoras(short horas) {
 		this.horas = horas;
-	}
-
-	@Column(name = "idsemestre", nullable = false)
-	public long getIdsemestre() {
-		return this.idsemestre;
-	}
-
-	public void setIdsemestre(long idsemestre) {
-		this.idsemestre = idsemestre;
 	}
 
 }

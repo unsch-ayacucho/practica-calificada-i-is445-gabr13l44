@@ -12,7 +12,7 @@ import com.example.demo.entities.Curso;
 import com.example.demo.entities.Docente;
 import com.example.demo.entities.Semestreacademico;
 
-@Repository("DocenteDao")
+@Repository("CargaAcademicaDao")
 public class CargaAcademicaDaoImpl implements CargaAcademicaDao {
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -27,7 +27,11 @@ public class CargaAcademicaDaoImpl implements CargaAcademicaDao {
 	@Override
 	public List<Carga> listarCarga() {
 		// TODO Auto-generated method stub
-		return entityManager.createQuery("select c.Horas from Carga c").getResultList();
+		return entityManager.createQuery("select new Carga (d.nombres as nombres,d.apellidos as apellidos,s.ciclo as semestre, c.horas as horas) FROM Carga c "
+				+ "inner join c.docente d "
+				+ "inner join c.semestreacademico s", Carga.class)
+				.getResultList();
+				
 	}
 
 	@Override

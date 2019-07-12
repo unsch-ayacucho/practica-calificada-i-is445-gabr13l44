@@ -1,11 +1,13 @@
 package com.example.demo.entities;
-// Generated 04-jul-2019 21:58:16 by Hibernate Tools 5.2.10.Final
+// Generated 11-jul-2019 22:05:43 by Hibernate Tools 5.2.10.Final
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -15,8 +17,8 @@ import javax.persistence.Table;
 @Table(name = "semestreacademico", catalog = "cargabd")
 public class Semestreacademico implements java.io.Serializable {
 
-	private Integer idSemestre;
 	private int ciclo;
+	private Set<Carga> cargas = new HashSet<Carga>(0);
 
 	public Semestreacademico() {
 	}
@@ -25,25 +27,29 @@ public class Semestreacademico implements java.io.Serializable {
 		this.ciclo = ciclo;
 	}
 
+	public Semestreacademico(int ciclo, Set<Carga> cargas) {
+		this.ciclo = ciclo;
+		this.cargas = cargas;
+	}
+
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "idSemestre", unique = true, nullable = false)
-	public Integer getIdSemestre() {
-		return this.idSemestre;
-	}
-
-	public void setIdSemestre(Integer idSemestre) {
-		this.idSemestre = idSemestre;
-	}
-
-	@Column(name = "ciclo", nullable = false)
+	@Column(name = "ciclo", unique = true, nullable = false)
 	public int getCiclo() {
 		return this.ciclo;
 	}
 
 	public void setCiclo(int ciclo) {
 		this.ciclo = ciclo;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "semestreacademico")
+	public Set<Carga> getCargas() {
+		return this.cargas;
+	}
+
+	public void setCargas(Set<Carga> cargas) {
+		this.cargas = cargas;
 	}
 
 }
