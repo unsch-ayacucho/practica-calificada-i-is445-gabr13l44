@@ -1,6 +1,6 @@
-
-create database cargabd2;
-use cargabd2;
+﻿
+create database cargabd;
+use cargabd;
 
 
 CREATE TABLE `Carga`
