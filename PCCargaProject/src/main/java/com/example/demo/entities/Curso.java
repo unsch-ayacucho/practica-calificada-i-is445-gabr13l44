@@ -1,5 +1,5 @@
 package com.example.demo.entities;
-// Generated 11-jul-2019 22:05:43 by Hibernate Tools 5.2.10.Final
+// Generated 16-jul-2019 17:55:55 by Hibernate Tools 5.2.10.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -19,24 +19,24 @@ import javax.persistence.Table;
 @Table(name = "curso", catalog = "cargabd")
 public class Curso implements java.io.Serializable {
 
-	private Integer idCurso;
+	private Integer idcurso;
 	private String nombre;
-	private byte horasSemanales;
+	private byte horassemanales;
 	private String tipo;
 	private Set<Docente> docentes = new HashSet<Docente>(0);
 
 	public Curso() {
 	}
 
-	public Curso(String nombre, byte horasSemanales, String tipo) {
+	public Curso(String nombre, byte horassemanales, String tipo) {
 		this.nombre = nombre;
-		this.horasSemanales = horasSemanales;
+		this.horassemanales = horassemanales;
 		this.tipo = tipo;
 	}
 
-	public Curso(String nombre, byte horasSemanales, String tipo, Set<Docente> docentes) {
+	public Curso(String nombre, byte horassemanales, String tipo, Set<Docente> docentes) {
 		this.nombre = nombre;
-		this.horasSemanales = horasSemanales;
+		this.horassemanales = horassemanales;
 		this.tipo = tipo;
 		this.docentes = docentes;
 	}
@@ -44,16 +44,16 @@ public class Curso implements java.io.Serializable {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "idCurso", unique = true, nullable = false)
-	public Integer getIdCurso() {
-		return this.idCurso;
+	@Column(name = "idcurso", unique = true, nullable = false)
+	public Integer getIdcurso() {
+		return this.idcurso;
 	}
 
-	public void setIdCurso(Integer idCurso) {
-		this.idCurso = idCurso;
+	public void setIdcurso(Integer idcurso) {
+		this.idcurso = idcurso;
 	}
 
-	@Column(name = "Nombre", nullable = false, length = 30)
+	@Column(name = "nombre", nullable = false, length = 30)
 	public String getNombre() {
 		return this.nombre;
 	}
@@ -62,13 +62,13 @@ public class Curso implements java.io.Serializable {
 		this.nombre = nombre;
 	}
 
-	@Column(name = "HorasSemanales", nullable = false)
-	public byte getHorasSemanales() {
-		return this.horasSemanales;
+	@Column(name = "horassemanales", nullable = false)
+	public byte getHorassemanales() {
+		return this.horassemanales;
 	}
 
-	public void setHorasSemanales(byte horasSemanales) {
-		this.horasSemanales = horasSemanales;
+	public void setHorassemanales(byte horassemanales) {
+		this.horassemanales = horassemanales;
 	}
 
 	@Column(name = "tipo", nullable = false, length = 10)

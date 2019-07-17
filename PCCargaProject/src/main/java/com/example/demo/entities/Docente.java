@@ -1,5 +1,5 @@
 package com.example.demo.entities;
-// Generated 11-jul-2019 22:05:43 by Hibernate Tools 5.2.10.Final
+// Generated 16-jul-2019 17:55:55 by Hibernate Tools 5.2.10.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +21,7 @@ import javax.persistence.Table;
 @Table(name = "docente", catalog = "cargabd")
 public class Docente implements java.io.Serializable {
 
-	private Integer idDocente;
+	private Integer iddocente;
 	private Curso curso;
 	private String nombres;
 	private String apellidos;
@@ -46,17 +46,17 @@ public class Docente implements java.io.Serializable {
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "idDocente", unique = true, nullable = false)
-	public Integer getIdDocente() {
-		return this.idDocente;
+	@Column(name = "iddocente", unique = true, nullable = false)
+	public Integer getIddocente() {
+		return this.iddocente;
 	}
 
-	public void setIdDocente(Integer idDocente) {
-		this.idDocente = idDocente;
+	public void setIddocente(Integer iddocente) {
+		this.iddocente = iddocente;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idCurso", nullable = false)
+	@JoinColumn(name = "idcurso", nullable = false)
 	public Curso getCurso() {
 		return this.curso;
 	}
@@ -65,7 +65,7 @@ public class Docente implements java.io.Serializable {
 		this.curso = curso;
 	}
 
-	@Column(name = "Nombres", nullable = false, length = 40)
+	@Column(name = "nombres", nullable = false, length = 40)
 	public String getNombres() {
 		return this.nombres;
 	}
@@ -74,7 +74,7 @@ public class Docente implements java.io.Serializable {
 		this.nombres = nombres;
 	}
 
-	@Column(name = "Apellidos", nullable = false, length = 40)
+	@Column(name = "apellidos", nullable = false, length = 40)
 	public String getApellidos() {
 		return this.apellidos;
 	}

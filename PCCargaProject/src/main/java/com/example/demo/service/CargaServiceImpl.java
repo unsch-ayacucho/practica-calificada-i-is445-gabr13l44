@@ -10,16 +10,17 @@ import org.springframework.stereotype.Service;
 import com.example.demo.dao.CargaAcademicaDao;
 import com.example.demo.entities.Carga;
 
-@Service("CargaService")
-@Transactional
+@Service
+
 public class CargaServiceImpl implements CargaService{
 	@Autowired
-	private CargaAcademicaDao CargaAcademicaDao;
+	private CargaAcademicaDao cargaAcademicaDao;
 
 	@Override
+	@Transactional
 	public List<Carga> listarCarga() {
 		// TODO Auto-generated method stub
-		return CargaAcademicaDao.listarCarga();
+		return cargaAcademicaDao.listarCarga();
 	}
 	
 	

@@ -9,8 +9,6 @@ import com.example.demo.entities.Semestreacademico;
 
 public interface CargaAcademicaDao {
 
-	public List<Docente> listarDocente();
 	public List<Carga> listarCarga();
-	public List<Curso> listarCurso();
-	public List<Semestreacademico> listarSemestreAcademico();
+
 }
